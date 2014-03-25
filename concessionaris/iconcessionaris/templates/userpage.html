@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>{{ username }} Sobres</title>
+	</head>
+	<body>
+		<h1>Cotxes comprats per {{ username }}</h1>
+		{% if compra %}
+		<ul>
+		{% for cotxe in compra %}
+		<li>
+		{{ cotxe.model.name}} - {{ cotxe.model.marca }} - {{ cotxe.concessionari.name }} - {{ cotxe.model.preu }}€
+		</li>
+		{% endfor %}
+		</ul>
+		{% else %}
+		<p>No ha comprat cotxes.</p>
+		{% endif %}
+	</body>
+</html>

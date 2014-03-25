@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>{{ titlehead}}</title>
+	</head>
+		<body>
+		<h1>{{ pagetitle }}</h1>
+		{% if Client.username %}
+		<p>Benvingut {{ Client.username }}!
+		Aquí podrà gestionar els seus cotxes!</p>
+		{% else %}
+		<p>Fes el login:
+		Obligatori fer <a href="/login/">sign in</a>
+		per gestionar cotes.</p>
+		{% endif %}
+	</body>
+</html>
