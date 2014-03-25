@@ -4,13 +4,13 @@
 	</head>
 		<body>
 		<h1>{{ pagetitle }}</h1>
-		{% if Client.username %}
-		<p>Benvingut {{ Client.username }}!
-		Aquí podrà gestionar els seus cotxes!</p>
+		{% if client.username %}
+		<p>Benvingut {{ client.username }}!
+		Aquí podrà gestionar els seus sobres!</p>
 		{% else %}
-		<p>Fes el login:
+		<p>Benvingut no ningú:
 		Obligatori fer <a href="/login/">sign in</a>
-		per gestionar cotes.</p>
+		per gestionar sobres.</p>
 		{% endif %}
 	</body>
 </html>

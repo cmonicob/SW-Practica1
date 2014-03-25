@@ -37,6 +37,8 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+AUTH_PROFILE_MODULE = 'iconcessionaris.Client'
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not

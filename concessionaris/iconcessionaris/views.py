@@ -8,24 +8,23 @@ def mainpage(request):
 	return render_to_response(
 		'mainpage.html',
 		{
-			'titlehead': 'Concessionaris aPP',
-			'pagetitle': 'Welcome to the Concessionaris aPPlication',
+			'titlehead': 'Sobres aPP',
+			'pagetitle': 'Welcome to the Sobres aPPlication',
 			'contentbody': 'Managing non legal funding since 2013',
 			'user': request.user
 		})
 
-def userpage(request, username):
+def clientOrderPage(request, username):
 	try:
 		user = User.objects.get(username=username)
 	except:
 		raise Http404('User not found.')
 
 	compra = user.compra_set.all()
-	template = get_template('userpage.html')
+	template = get_template('clientOrderPage.html')
 	variables = Context({
 		'username': username,
-		'model': model,
-		'concessionari' : concessionari
+		'compra': compra
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
