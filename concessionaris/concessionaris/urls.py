@@ -15,8 +15,22 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-
-	url(r'^$', mainpage, name='home'),
-	url(r'^clients/(\w+)/order$', clientOrderPage),
-	url(r'^login/$', 'django.contrib.auth.views.login'),
+    
+    # ----------- api pages -----------
+    url(r'^$', mainpage, name='home'),
+    # Clients pages
+    url(r'^clients/$',clientListPage),
+    url(r'^clients/(\w+)/$', clientInfoPage),
+    url(r'^clients/(\w+)/order$', clientOrderPage),
+    # Car Dealers pages
+    url(r'^cardealers/$',carDealersListPage),
+    url(r'^cardealers/(\w+)/$', carDealersInfoPage),
+    url(r'^cardealers/(\w+)/order$', carDealersOrderPage),
+    # Brands pages
+    url(r'^brands/$',brandsListPage),
+    url(r'^brands/(\w+)/$', brandsInfoPage),
+    # Orders pages
+    url(r'^orders/(\w+)/$', ordersInfoPage),
+    # 
+    url(r'^login/$', 'django.contrib.auth.views.login'),
 )
