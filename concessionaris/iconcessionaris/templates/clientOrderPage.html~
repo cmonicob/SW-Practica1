@@ -6,9 +6,9 @@
 		<h1>Cotxes comprats per {{ username }}</h1>
 		{% if compra %}
 		<ul>
-		{% for cotxe in compra %}
+		{% for order in orders %}
 		<li>
-		{{ cotxe.model.name}} - {{ cotxe.model.marca }} - {{ cotxe.concessionari.name }} - {{ cotxe.model.preu }}€
+		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.concessionari.name }} - {{ order.model.preu }}€
 		</li>
 		{% endfor %}
 		</ul>

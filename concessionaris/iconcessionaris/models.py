@@ -8,7 +8,8 @@ User.add_to_class('telefon', models.PositiveIntegerField(null=True, blank=True))
 
 class Concessionari(models.Model):
     name = models.CharField(max_length=40)
-    
+    tel = models.IntegerField()
+    address = models.CharField(max_length=40)
     def __unicode__(self):
         return self.name
 
@@ -32,6 +33,7 @@ class Peca(models.Model):
         return self.name
 
 class Compra(models.Model):
+    
     model = models.ForeignKey(Model)
     concessionari = models.ForeignKey(Concessionari)
     user = models.ForeignKey(User)

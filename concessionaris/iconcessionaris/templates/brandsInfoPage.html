@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Informacio marca</title>
+  </head>
+  <body>
+    <h1>Informacio marca</h1>
+    {% if brand %}
+      <p>
+        * {{ brand.name}} 
+      </p>
+    {% else %}
+      <p>No existeix aquest concessionari.</p>
+    {% endif %}
+  </body>
+</html>

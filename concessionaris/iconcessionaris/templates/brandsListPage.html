@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Brands List</title>
+  </head>
+  <body>
+    <h1>Brands List</h1>
+    {% if brands %}
+      <ul>
+        {% for marca in brands %}
+        <li>
+        <a href="{{ marca.name}}">{{ marca.name}} </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No han Concessionaris.</p>
+    {% endif %}
+  </body>
+</html>

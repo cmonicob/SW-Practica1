@@ -30,7 +30,11 @@ urlpatterns = patterns('',
     url(r'^brands/$',brandsListPage),
     url(r'^brands/(\w+)/$', brandsInfoPage),
     # Orders pages
-    url(r'^orders/(\w+)/$', ordersInfoPage),
-    # 
+    url(r'^orders/(\w+)/$', ordersInfoPage), 
     url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^logout/$', user_logout),
+    #XML
+
+
+
 )

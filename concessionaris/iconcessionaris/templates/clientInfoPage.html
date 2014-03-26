@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Informacio usuari</title>
+  </head>
+  <body>
+    <h1>Informacio usuari</h1>
+    {% if client %}
+      <p>
+        {{ client.username}} - {{ client.email }} - {{ client.name }} - {{ client.name }}
+      </p>
+    {% else %}
+      <p>No existeix aquest usuari.</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>{{ carDealer }}</title>
+	</head>
+	<body>
+		<h1>Cotxes comprats en {{ carDealer }}</h1>
+		{% if orders %}
+		<ul>
+		{% for order in orders %}
+		<li>
+		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.client.name }} - {{ order.model.preu }}€
+		</li>
+		{% endfor %}
+		</ul>
+		{% else %}
+		<p>No ha comprat cotxes.</p>
+		{% endif %}
+	</body>
+</html>

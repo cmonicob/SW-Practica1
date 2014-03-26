@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  {% for order in orders %}
+  <order>
+	<id>{{ order.id }}</id>
+    <car>
+      <brand>{{ order.model.marca }}</brand>
+      <model>{{ order.model.name}}</model>
+      <price>{{ order.model.preu }}€</price>
+    </car>
+    <cardealer>{{ order.concessionari.name }}</cardealer>
+  </order>
+  {% endfor %}
+</orders>

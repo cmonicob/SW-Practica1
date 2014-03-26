@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  {% for cotxe in compres %}
+  <order>
+    <car>
+      <brand>{{ cotxe.model.marca }}</brand>
+      <model>{{ cotxe.model.name}}</model>
+      <price>{{ cotxe.model.preu }}€</price>
+    </car>
+    <cardealer>{{ cotxe.concessionari.name }}</cardealer>
+  </order>
+  {% endfor %}
+</orders>

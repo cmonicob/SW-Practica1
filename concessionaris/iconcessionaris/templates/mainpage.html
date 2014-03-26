@@ -5,12 +5,21 @@
 		<body>
 		<h1>{{ pagetitle }}</h1>
 		{% if user.username %}
+
 		<p>Benvingut {{ user.username }}!
-		Aquí podrà gestionar els seus sobres!</p>
+		Aquí podrà gestionar els seus cotxes!</p>
+		<ul>
+			<li><a href="clients">Clients </a></li>
+			<li><a href="cardealers">Concessionaris </a></li>
+			<li><a href="brands">Marques </a></li>
+		</ul>
+		</br></br>
+		<p>Per desconectar: <a href="/logout/">Logout</a></p>
 		{% else %}
 		<p>Benvingut no ningú:
 		Obligatori fer <a href="/login/">sign in</a>
-		per gestionar sobres.</p>
+		per gestionar cotxes.</p>
 		{% endif %}
+		
 	</body>
 </html>

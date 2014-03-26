@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Concessionaris</title>
+  </head>
+  <body>
+    <h1>Concessionaris</h1>
+    {% if carDealers %}
+      <ul>
+        {% for carDealer in carDealers %}
+        <li>
+        <a href="{{ carDealer.name}}">{{ carDealer.name}} </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No hi han Concessionaris.</p>
+    {% endif %}
+  </body>
+</html>

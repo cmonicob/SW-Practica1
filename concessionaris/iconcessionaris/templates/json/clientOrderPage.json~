@@ -1,0 +1,16 @@
+{ "orders":{
+    {% for cotxe in compra %}
+    "order":{
+      "id": "{{ cotxe.id }}",
+      "cotxe":{
+        "brand": "{{ cotxe.model.marca }}",
+        "model": "{{ cotxe.model.name}}",
+        "price": "{{ cotxe.model.preu }}"
+      },
+      "cardealer":{
+        "name": "{{ cotxe.concessionari.name }}"
+      }
+    }
+    {% endfor %}
+  }
+}

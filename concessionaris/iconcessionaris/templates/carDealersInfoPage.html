@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Informacio concessionari</title>
+  </head>
+  <body>
+    <h1>Informacio concessionari</h1>
+    {% if concessionari %}
+  	<p>Nom del concessionari: {{ concessionari.name}} </p>
+	<p>Telefon: {{ concessionari.tel }}</p>
+	<p>Adreça: {{ concessionari.address }}</p>
+    {% else %}
+      <p>No existeix aquest concessionari.</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Informacio compra</title>
+  </head>
+  <body>
+    <h1>Informacio compra</h1>
+    {% if order %}
+  	<p>Model: {{ order.model.name}} </p>
+  	<p>Marca: {{ order.model.marca}} </p>
+	<p>Concessionari: {{ order.concessionari.name }}</p>
+	<p>Client: {{ order.user.username }}</p>
+    {% else %}
+      <p>No existeix aquest concessionari.</p>
+    {% endif %}
+  </body>
+</html>
