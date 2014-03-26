@@ -15,10 +15,15 @@ def mainpage(request):
 		})
 		
 def clientListPage(request):
-	clients = user.all()
+	return render_to_response('clientListPage.html',
+		{
+			'clients': user.all()	
+		})
+	"""clients = user.all()
 	template =  get_template('clientListPage.html')
 	output = template.render(clients)
 	return HttpResponse(output)
+	"""
 
 def clientOrderPage(request, username):
 	try:
