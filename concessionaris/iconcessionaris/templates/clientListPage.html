@@ -1,2 +1,19 @@
 <html>
-<\html>
+  <head>
+    <title>Llista usuaris</title>
+  </head>
+  <body>
+    <h1>Llista usuaris</h1>
+    {% if compra %}
+      <ul>
+        {% for client in clients %}
+        <li>
+        {{ client.name}} - {{ client.name }} - {{ client.name }} - {{ client.name }}
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No jan clients.</p>
+    {% endif %}
+  </body>
+</html>
