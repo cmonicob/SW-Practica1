@@ -13,6 +13,12 @@ def mainpage(request):
 			'contentbody': 'Managing non legal funding since 2013',
 			'user': request.user
 		})
+		
+def clientListPage(request):
+	clients = user.all()
+	template =  get_template('clientListPage.html')
+	output = template.render(clients)
+	return HttpResponse(output)
 
 def clientOrderPage(request, username):
 	try:
