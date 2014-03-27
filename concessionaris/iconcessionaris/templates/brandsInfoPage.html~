@@ -9,7 +9,7 @@
         * {{ brand.name}} 
       </p>
     {% else %}
-      <p>No existeix aquesta marca.</p>
+      <p>No existeix aquest concessionari.</p>
     {% endif %}
   </body>
 </html>

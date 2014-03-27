@@ -1,0 +1,12 @@
+{ "carDealer":{
+	"name": "{{ concessionari.name }}"
+	}
+    {
+	"phonenumber": "{{ concessionari.tel }}"
+	}
+    {
+	"address": "{{ concessionari.address }}"
+	}
+}
+
+

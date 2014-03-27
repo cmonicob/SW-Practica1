@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+	<car>
+		<brand>{{ order.model.marca}}</brand>
+		<model>{{ order.model.name}}</model>
+		<price>{{ order.model.preu }}</price>
+	</car>	
+	<client>{{ order.user.username }}</client>
+	<carDealer>{{ order.concessionari.name }}</carDealer>
+</orders>

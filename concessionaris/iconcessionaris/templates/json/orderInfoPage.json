@@ -1,0 +1,13 @@
+{ "order":{
+      "cotxe":{
+        "brand": "{{ order.model.marca }}",
+        "model": "{{ order.model.name}}",
+        "price": "{{ order.model.preu }}"
+      },
+	"client": "{{ order.user.username }}",
+        "carDealer": "{{ order.concessionari.name }}"
+    }
+  }
+}
+
+

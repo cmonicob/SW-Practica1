@@ -1,16 +1,14 @@
-{ "orders":{
-    {% for order in orders %}
-    "order":{
+{ "order":{
       "id": "{{ order.id }}",
       "cotxe":{
         "brand": "{{ order.model.marca }}",
         "model": "{{ order.model.name}}",
         "price": "{{ order.model.preu }}"
       },
-      "cardealer":{
-        "name": "{{ order.concessionari.name }}"
-      }
+	"client": "{{ order.user.username }}",
+        "carDealer": "{{ order.concessionari.name }}"
     }
-    {% endfor %}
   }
 }
+
+

@@ -1,0 +1,9 @@
+{ 	"brands":
+	{	
+        {% for marca in brands %}
+		"brand"{        
+			"name": "{{ marca.name }}"
+		}        
+		{% endfor %}
+	}
+}

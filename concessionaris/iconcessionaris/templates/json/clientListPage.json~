@@ -1,0 +1,10 @@
+{ 	"clients":
+	{	
+        {% for client in clients %}
+		"client"{        
+			"username": "{{ client.username }}"
+		}        
+		{% endfor %}
+	}
+}
+

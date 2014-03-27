@@ -6,7 +6,7 @@
     <h1>Informacio usuari</h1>
     {% if client %}
       <p>
-        {{ client.username}} - {{ client.email }} - {{ client.first_name }}  {{ client.last_name }}
+        {{ client.username}} - {{ client.email }} - {{ client.first_name }} - {{ client.last_name }}
       </p>
     {% else %}
       <p>No existeix aquest usuari.</p>

@@ -1,0 +1,12 @@
+{ 	"carDealers":
+	{	
+        {% for card in carDealers %}
+		"carDealer"{        
+			"name": "{{ card.name }}"
+		}        
+		{% endfor %}
+	}
+}
+
+
+

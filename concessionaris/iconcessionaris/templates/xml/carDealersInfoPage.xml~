@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carDealer>
+	<name>{{concessionari.name}}</name>
+	<celphone>{{concessionari.tel}}</celphone>
+	<address>{{concessionari.address}}</address>
+</carDealer>

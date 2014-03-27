@@ -1,0 +1,16 @@
+{ "orders":{
+
+	 {% for order in orders %}
+		"Order: "{        
+			"id": "{{ order.id }}"
+			"model": "{{ order.model.name }}"
+			"brand": "{{ order.model.marca }}"
+			"client": "{{ order.user.username }}"
+			"price": "{{ order.model.preu }}"
+		}        
+	{% endfor %}
+
+	
+}
+
+

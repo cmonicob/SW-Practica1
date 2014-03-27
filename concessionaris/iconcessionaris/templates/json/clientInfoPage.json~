@@ -1,0 +1,12 @@
+{ "client":{
+	"user": "{{ client.username }}"
+	"mail": "{{ client.email }}"
+	"first_name": "{{ client.first_name }}"
+	"last_name": "{{ client.last_name }}"
+	}
+}
+
+
+
+
+

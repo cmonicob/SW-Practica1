@@ -10,7 +10,7 @@
       "cardealer":{
         "name": "{{ order.concessionari.name }}"
       }
-    }
+    },
     {% endfor %}
   }
 }

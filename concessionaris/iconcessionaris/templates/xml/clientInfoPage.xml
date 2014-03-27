@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client>
+  	<user>{{ client.username}}</user>
+	<mail>{{ client.email }}</mail>
+	<first_name>{{ client.first_name }}</first_name>
+	<last_name>{{ client.last_name}}</last_name>
+</client>

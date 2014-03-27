@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+  {% for order in orders %}
+  <client>
+	<user>{{ client.username}}</user>
+  </client>
+  {% endfor %}
+</clients>
