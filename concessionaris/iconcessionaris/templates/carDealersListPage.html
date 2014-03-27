@@ -1,14 +1,37 @@
 <html>
   <head>
     <title>Concessionaris</title>
+	<style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;
+		padding: 20px;		
+		}
+		.aes:visited{
+		color: black;
+		}
+		.aes:hover{
+		color: red;
+		}
+		.aes{
+		color: black;
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+		}
+	  </style>
   </head>
-  <body>
-    <h1>Concessionaris</h1>
+  <body id="body">
+<p id="p_tittle">Concessionaris</p>
     {% if carDealers %}
       <ul>
         {% for carDealer in carDealers %}
         <li>
-        <a href="{{ carDealer.name}}">{{ carDealer.name}} </a>
+        <a class="aes" href="{{ carDealer.name}}">{{ carDealer.name}} </a>
         </li>
         {% endfor %}
       </ul>

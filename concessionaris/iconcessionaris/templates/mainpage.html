@@ -1,25 +1,62 @@
 <html>
 	<head>
-		<title>{{ titlehead}}</title>
+		<title>{{ titlehead }}</title>
+	<style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;	
+		}
+		#DIV_main{
+		position: relative;
+		width: 750px;
+		height: 350px;	
+		margin: auto;	
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+	    	text-align: center; 
+		}
+		.aes:visited{
+		color: black;
+		}
+		.aes:hover{
+		color: red;
+		}
+		.aes{
+		color: black;
+		}
+		.button{
+		background: none repeat scroll 0 0 #F8F8F8;
+		border: 1px solid #C6C6C6;
+		cursor: pointer;
+		width: 100px;
+		}
+		.button:hover{
+		background: none repeat scroll 0 0 red;
+		}
+	  </style>
 	</head>
-		<body>
-		<h1>{{ pagetitle }}</h1>
+		<body id="body">
+		<div id="DIV_main"><p id='p_tittle'>{{ pagetitle }}</p>
 		{% if user.username %}
 
 		<p>Benvingut {{ user.username }}!
 		Aquí podrà gestionar els seus cotxes!</p>
 		<ul>
-			<li><a href="clients">Clients </a></li>
-			<li><a href="cardealers">Concessionaris </a></li>
-			<li><a href="brands">Marques </a></li>
+			<li><a class="aes" href="clients">Clients </a></li>
+			<li><a class="aes" href="cardealers">Concessionaris </a></li>
+			<li><a class="aes" href="brands">Marques </a></li>
 		</ul>
-		</br></br>
-		<p>Per desconectar: <a href="/logout/">Logout</a></p>
+		<button class="button" onclick="window.location.href='/logout/'">Sortir</button>
 		{% else %}
-		<p>Benvingut no ningú:
-		Obligatori fer <a href="/login/">sign in</a>
-		per gestionar cotxes.</p>
+		<p>Benvingut!:
+		Es obligatori <a href="/login/">entrar</a>
+		per gestionar els cotxes.</p>
 		{% endif %}
-		
+		</div>
 	</body>
 </html>

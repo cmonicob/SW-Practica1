@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Informacio compra</title>
+    <title>Informacio concessionari</title>
     <style type="text/css">
 		#body {
 		background-color: #DDDDDD;
@@ -17,14 +17,13 @@
 	  </style>
   </head>
   <body>
-    <h1>Informacio compra</h1>
-    {% if order %}
-  	<p>Model: {{ order.model.name}} </p>
-  	<p>Marca: {{ order.model.marca}} </p>
-	<p>Concessionari: {{ order.concessionari.name }}</p>
-	<p>Client: {{ order.user.username }}</p>
+    <h1>Informacio concessionari</h1>
+    {% if concessionari %}
+  	<p>Nom del concessionari: {{ concessionari.name}} </p>
+	<p>Telefon: {{ concessionari.tel }}</p>
+	<p>Adreça: {{ concessionari.address }}</p>
     {% else %}
-      <p>No existeix aquesta Compra.</p>
+      <p>No existeix aquest concessionari.</p>
     {% endif %}
   </body>
 </html>

@@ -1,14 +1,37 @@
 <html>
   <head>
     <title>Llista usuaris</title>
+	<style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;	
+		padding: 20px;	
+		}
+		.aes:visited{
+		color: black;
+		}
+		.aes:hover{
+		color: red;
+		}
+		.aes{
+		color: black;
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+		}
+	  </style>
   </head>
-  <body>
-    <h1>Llista usuaris</h1>
+  <body id="body">
+<p id="p_tittle">Llista usuaris</p>
     {% if clients %}
       <ul>
         {% for client in clients %}
         <li>
-        <a href="{{ client.username}}">{{ client.username}} </a>
+        <a class="aes" href="{{ client.username}}">{{ client.username}} </a>
         </li>
         {% endfor %}
       </ul>

@@ -1,20 +1,61 @@
 <html>
 <head>
 <title>Los Sobres - Sign In</title>
+	<style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;	
+		}
+		#DIV_main{
+		position: relative;
+		width: 350px;
+		border: 1px solid #C6C6C6;
+		height: 200px;	
+		margin: 20 auto;
+		text-align: center;
+		background-color: white;
+		padding: 20px;	
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+	    	text-align: center; 
+		}
+		color: black;
+		}
+		.button{
+		background: none repeat scroll 0 0 #F8F8F8;
+		border: 1px solid #C6C6C6;
+		cursor: pointer;
+		width: 100px;
+		}
+		.button:hover{
+		background: none repeat scroll 0 0 red;
+		}
+	  </style>
 </head>
-<body>
-<h1>User Login</h1>
+<body id="body">
+<div id="DIV_main">
+<p id="p_tittle">Introdueix els camps:</p>
 {% if form.has_errors %}
 <p>Error validant usuari.</p>
 {% endif %}
 <form method="post" action=".">
-<p><label for="id_username">User:</label>
-{{ form.username }}</p>
-<p><label for="id_password">Pass:</label>
-{{ form.password }}</p>
+<table>
+<tr>
+<td>
+<label for="id_username">Usuari:</label></td><td>
+{{ form.username }}</td></tr><tr><td>
+<label for="id_password">Contrasenya:</label></td><td>
+{{ form.password }}</td></tr></table><br>
 <input type="hidden" name="next" value="/" />
-<input type="submit" value="login" />
+<input class="button" type="submit" value="Entrar" />
 {% csrf_token %}
+
 </form>
+</div>
 </body>
 </html>

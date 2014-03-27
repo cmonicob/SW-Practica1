@@ -1,6 +1,20 @@
 <html>
 	<head>
 		<title>{{ carDealer }}</title>
+		<style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;
+		padding: 20px;	
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+		}
+	  </style>
 	</head>
 	<body>
 		<h1>Cotxes comprats en {{ carDealer }}</h1>
@@ -8,7 +22,7 @@
 		<ul>
 		{% for order in orders %}
 		<li>
-		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.client.name }} - {{ order.model.preu }}€
+		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.user.username }} - {{ order.model.preu }}€
 		</li>
 		{% endfor %}
 		</ul>

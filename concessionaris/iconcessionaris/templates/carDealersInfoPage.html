@@ -1,9 +1,23 @@
 <html>
   <head>
     <title>Informacio concessionari</title>
+    <style type="text/css">
+		#body {
+		background-color: #DDDDDD;
+		font-family: Arial;
+		font-size: 12pt;
+		margin: 0 auto;
+		width: 100%;
+		padding: 20px;	
+		}
+  		#p_tittle {
+	    	color: black;
+		font-size: 30px;
+		}
+	  </style>
   </head>
-  <body>
-    <h1>Informacio concessionari</h1>
+  <body id="body">
+    <p id="p_tittle">Informacio concessionari</p>
     {% if concessionari %}
   	<p>Nom del concessionari: {{ concessionari.name}} </p>
 	<p>Telefon: {{ concessionari.tel }}</p>

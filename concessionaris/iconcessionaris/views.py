@@ -14,9 +14,8 @@ def mainpage(request):
 	return render_to_response(
 		'mainpage.html',
 		{
-			'titlehead': 'Sobres aPP',
-			'pagetitle': 'Welcome to the Sobres aPPlication',
-			'contentbody': 'Managing non legal funding since 2013',
+			'titlehead': 'Concessionaris APP',
+			'pagetitle': 'Benvingut a l\'aplicacio per gestionar els concessionaris',
 			'user': request.user
 		})
 		
