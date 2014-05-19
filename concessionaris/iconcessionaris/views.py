@@ -8,13 +8,7 @@ from django.contrib.auth import logout
 from django.core.urlresolvers import reverse	
 from django.views.generic import DetailView	
 from django.views.generic.edit import CreateView	
-  
-
-from	
-  forms	
-  import	
-  RestaurantForm,	
-  DishForm	
+from forms import *	
   
 
 
@@ -73,7 +67,15 @@ def clientOrderPage(request, username):
 
 class clientCreate(CreateView):
     model = User
-    template_name = 'iconcessionaris/templates/form.html'
+    template_name = 'form.html'
+    form_class = ClientForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(clientCreate, self).form_valid(form)
+
+class clientEdit(CreateView):
+    model = User
+    template_name = 'form.html'
     form_class = ClientForm
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -118,6 +120,22 @@ def carDealersOrderPage(request, name):
 	output = template.render(variables)
 	return HttpResponse(output, mimetype=mimetype)
 
+class cardealersCreate(CreateView):
+    model = Concessionari
+    template_name = 'form.html'
+    form_class = CarDealerForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(cardealersCreate, self).form_valid(form)
+
+
+class carDealersOrderCreate(CreateView):
+    model = Compra
+    template_name = 'form.html'
+    form_class = CarDealerForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(carDealersOrderCreate, self).form_valid(form)
 
 def brandsListPage(request):
 
@@ -143,6 +161,14 @@ def brandsInfoPage (request, name):
 	})
 	output = template.render(variables)
 	return HttpResponse(output, mimetype=mimetype)
+
+class brandsCreate(CreateView):
+    model = Marca
+    template_name = 'form.html'
+    form_class = BrandForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(brandsCreate, self).form_valid(form)
 
 def ordersInfoPage(request, orderid):
 	try:
