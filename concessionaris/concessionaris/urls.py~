@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     # Car Dealers pages
     url(r'^cardealers/$',carDealersListPage),
     url(r'^cardealers/(\w+)/$', carDealersInfoPage),
-    url(r'^cardealers/(\w+)/order$', carDealersOrderPage),
+    url(r'^cardealers/(\w+)/orders$', carDealersOrderPage),
     # Brands pages
     url(r'^brands/$',brandsListPage),
     url(r'^brands/(\w+)/$', brandsInfoPage),

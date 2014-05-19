@@ -22,15 +22,27 @@ urlpatterns = patterns('',
     url(r'^clients/$',clientListPage),
     url(r'^clients/(\w+)/$', clientInfoPage),
     url(r'^clients/(\w+)/orders$', clientOrderPage),
+    
     # Car Dealers pages
     url(r'^cardealers/$',carDealersListPage),
     url(r'^cardealers/(\w+)/$', carDealersInfoPage),
     url(r'^cardealers/(\w+)/orders$', carDealersOrderPage),
+    url(r'^cardealers/(\w+)/create$', cardealersCreate),
+    url(r'^cardealers/(\w+)/edit$', cardealersEdit),
+    url(r'^cardealers/(\w+)/delete$', cardealersDelete),
     # Brands pages
     url(r'^brands/$',brandsListPage),
     url(r'^brands/(\w+)/$', brandsInfoPage),
+    url(r'^brands/(\w+)/create$', brandsCreate),
+    url(r'^brands/(\w+)/edit$', brandsEdit),
+    url(r'^brands/(\w+)/delete$', brandsDelete),
     # Orders pages
     url(r'^orders/(\w+)/$', ordersInfoPage), 
+    url(r'^orders/(\w+)/create$', ordersCreate),
+    url(r'^orders/(\w+)/edit$', ordersEdit),
+    url(r'^orders/(\w+)/delete$', ordersDelete),
+    
+
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', user_logout),
 )
