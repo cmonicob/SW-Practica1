@@ -60,13 +60,12 @@ def clientOrderPage(request, username):
 	return HttpResponse(output, mimetype=mimetype)
 
 class clientCreate(CreateView):
-	model = Client
-    template_name = 'jgldfjglfdk.html'
+    model = User
+    template_name = 'iconcessionaris/templates/form.html'
     form_class = ClientForm
-
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(RestaurantCreate, self).form_valid(form)
+        return super(clientCreate, self).form_valid(form)
 
 def carDealersListPage(request):
 	try:

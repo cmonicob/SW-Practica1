@@ -2,9 +2,21 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404	
 from iconcessionaris.models import *
 from django.contrib.auth import logout
+from django.core.urlresolvers import reverse	
+from django.views.generic import DetailView	
+from django.views.generic.edit import CreateView	
+  
+
+from	
+  forms	
+  import	
+  RestaurantForm,	
+  DishForm	
+  
+
 
 def user_logout(request):
     logout(request)
@@ -60,13 +72,12 @@ def clientOrderPage(request, username):
 	return HttpResponse(output, mimetype=mimetype)
 
 class clientCreate(CreateView):
-	model = Client
-    template_name = 'jgldfjglfdk.html'
+    model = User
+    template_name = 'iconcessionaris/templates/form.html'
     form_class = ClientForm
-
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(RestaurantCreate, self).form_valid(form)
+        return super(clientCreate, self).form_valid(form)
 
 def carDealersListPage(request):
 	try:
