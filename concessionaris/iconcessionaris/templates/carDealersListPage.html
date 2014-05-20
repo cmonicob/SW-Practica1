@@ -27,11 +27,11 @@
   </head>
   <body id="body">
 <p id="p_tittle">Concessionaris</p>
-    {% if carDealers %}
+    {% if object_list %}
       <ul>
-        {% for carDealer in carDealers %}
+        {% for carDealer in object_list %}
         <li>
-        <a class="aes" href="{{ carDealer.name}}">{{ carDealer.name}} </a>
+        <a class="aes" href="{{ carDealer.id}}">{{ carDealer.name}} </a>
         </li>
         {% endfor %}
       </ul>

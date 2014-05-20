@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>{{ username }} Sobres</title>
+		<title>{{ object_list.id }} Ordres</title>
 		<style type="text/css">
 		#body {
 		background-color: #DDDDDD;
@@ -16,11 +16,11 @@
 		}
 	  </style>
 	</head>
-	<body>
-		<h1>Cotxes comprats per {{ username }}</h1>
-		{% if orders %}
+	<body id="body">
+		<p id="p_tittle">Cotxes comprats per {{ object_list.id }}</p>
+		{% if object_list %}
 		<ul>
-		{% for order in orders %}
+		{% for order in object_list %}
 		<li>
 		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.concessionari.name }} - {{ order.model.preu }}€
 		</li>

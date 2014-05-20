@@ -16,8 +16,8 @@
 		}
 	  </style>
   </head>
-  <body>
-    <h1>Informacio marca</h1>
+  <body id="body">
+    <p id="p_tittle">Informacio marca</p>
     {% if brand %}
       <p>
         * {{ brand.name}} 

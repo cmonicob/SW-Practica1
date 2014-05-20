@@ -4,7 +4,7 @@ from models import *
 class ClientForm(ModelForm):	
 	class Meta:	
 		model = User	
-		exclude = ('user','date',)
+		exclude = ('date', 'last_login', 'groups','is_superuser','user_permissions','is_staff','is_active','date_joined')
 	
 class OrderForm(ModelForm):	
 	class Meta:	

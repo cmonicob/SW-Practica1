@@ -18,9 +18,9 @@
   </head>
   <body id="body">
     <p id="p_tittle">Informacio usuari</p>
-    {% if client %}
+    {% if object %}
       <p>
-        {{ client.username}} - {{ client.email }} - {{ client.first_name }}  {{ client.last_name }}
+        {{ object.username}} - {{ object.email }} - {{ object.first_name }}  {{ object.last_name }}
       </p>
     {% else %}
       <p>No existeix aquest usuari.</p>

@@ -7,7 +7,8 @@
 		font-family: Arial;
 		font-size: 12pt;
 		margin: 0 auto;
-		width: 100%;	
+		width: 100%;
+		padding: 20px;		
 		}
 		.aes:visited{
 		color: black;
@@ -26,9 +27,9 @@
   </head>
   <body id="body">
 <p id="p_tittle">Concessionaris</p>
-    {% if carDealers %}
+    {% if object_list %}
       <ul>
-        {% for carDealer in carDealers %}
+        {% for carDealer in object_list %}
         <li>
         <a class="aes" href="{{ carDealer.name}}">{{ carDealer.name}} </a>
         </li>

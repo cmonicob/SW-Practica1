@@ -27,11 +27,11 @@
   </head>
   <body id="body">
 <p id="p_tittle">Llista usuaris</p>
-    {% if clients %}
+    {% if object_list %}
       <ul>
-        {% for client in clients %}
+        {% for client in object_list %}
         <li>
-        <a class="aes" href="{{ client.username}}">{{ client.username}} </a>
+        <a class="aes" href="{{ client.id}}">{{ client.username}} </a>
         </li>
         {% endfor %}
       </ul>

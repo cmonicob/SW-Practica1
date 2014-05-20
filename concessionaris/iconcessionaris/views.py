@@ -6,8 +6,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from iconcessionaris.models import *
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse	
-from django.views.generic import DetailView	
-from django.views.generic.edit import CreateView	
+from django.views.generic import CreateView, ListView, UpdateView, DetailView	
 from forms import *	
   
 
@@ -25,45 +24,20 @@ def mainpage(request):
 			'user': request.user
 		})
 		
-def clientListPage(request):
-	try:
-		clients = User.objects.all()
-		
-	except:
-		raise Http404('User List not found')
-	template, mimetype = templateFormat(request,'clientListPage')
-	variables = Context({
-		'clients' : clients
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class clientListPage (ListView):
+    model = User
+    template_name = 'clientListPage.html'
 
-def clientInfoPage(request, username):
-	try:
-		client = User.objects.get(username=username)
-	except:
-		raise Http404('User not found.')
-	template, mimetype = templateFormat(request,'clientInfoPage')
-	variables = Context({
-		'client' : client
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class clientDetail (DetailView):
+    model = User
+    template_name = 'clientInfoPage.html'
 
-def clientOrderPage(request, username):
-	try:
-		user = User.objects.get(username=username)
-	except:
-		raise Http404('User not found.')
+class clientOrderPage (ListView):
+    model = Compra
+    template_name= 'clientOrderPage.html'
+    def get_queryset(self):
+        return Compra.objects.filter(user=self.kwargs['pk'])
 
-	orders = user.compra_set.all()
-	template, mimetype = templateFormat(request,'clientOrderPage')
-	variables = Context({
-		'username': username,
-		'orders': orders
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
 
 class clientCreate(CreateView):
     model = User
@@ -81,44 +55,17 @@ class clientEdit(CreateView):
         form.instance.user = self.request.user
         return super(clientCreate, self).form_valid(form)
 
-def carDealersListPage(request):
-	try:
-		carDealers = Concessionari.objects.all()
-	except:
-		raise Http404('CarDealers List not found')
-	template, mimetype = templateFormat(request,'carDealersListPage')
-	variables = Context({
-		'carDealers' : carDealers
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class carDealersListPage (ListView):
+    model = Concessionari
+    template_name = 'carDealersListPage.html'
 
-def carDealersInfoPage(request, name) :
-	try:
-		concessionari = Concessionari.objects.get(name=name)
-	except:
-		raise Http404('User not found.')
-	template, mimetype = templateFormat(request,'carDealersInfoPage')
-	variables = Context({
-		'concessionari' : concessionari
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class carDealersInfoPage (DetailView):
+    model = Concessionari
+    template_name = 'carDealersInfoPage.html'
 
-def carDealersOrderPage(request, name):
-	try:
-		carDealers = Concessionari.objects.get(name=name)
-	except:
-		raise Http404('carDealer not found.')
-
-	orders = carDealers.compra_set.all()
-	template, mimetype = templateFormat(request,'carDealersOrderPage')
-	variables = Context({
-		'carDealer': name,
-		'orders': orders
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class carDealersOrdersListPage (ListView):
+    model = Compra
+    template_name = 'carDealersOrderPage.html'
 
 class cardealersCreate(CreateView):
     model = Concessionari
@@ -128,7 +75,6 @@ class cardealersCreate(CreateView):
         form.instance.user = self.request.user
         return super(cardealersCreate, self).form_valid(form)
 
-
 class carDealersOrderCreate(CreateView):
     model = Compra
     template_name = 'form.html'
@@ -137,30 +83,13 @@ class carDealersOrderCreate(CreateView):
         form.instance.user = self.request.user
         return super(carDealersOrderCreate, self).form_valid(form)
 
-def brandsListPage(request):
+class brandsListPage(ListView):
+    model = Marca
+    template_name = 'brandsListPage.html'
 
-	try:
-		brands = Marca.objects.all()
-	except:
-		raise Http404('Brands List not found')
-	template, mimetype = templateFormat(request,'brandsListPage')
-	variables = Context({
-		'brands' : brands
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
-
-def brandsInfoPage (request, name):
-	try:
-		brand = Marca.objects.get(name=name)
-	except:
-		raise Http404('Brand not found.')
-	template, mimetype = templateFormat(request,'brandsInfoPage')
-	variables = Context({
-		'brand' : brand
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class brandsDetail(DetailView):
+    model = Marca
+    template_name = 'brandsInfoPage.html'
 
 class brandsCreate(CreateView):
     model = Marca
@@ -170,17 +99,9 @@ class brandsCreate(CreateView):
         form.instance.user = self.request.user
         return super(brandsCreate, self).form_valid(form)
 
-def ordersInfoPage(request, orderid):
-	try:
-		order = Compra.objects.get(id=orderid)
-	except:
-		raise Http404('Order not found.')
-	template, mimetype = templateFormat(request,'orderInfoPage')
-	variables = Context({
-		'order' : order
-	})
-	output = template.render(variables)
-	return HttpResponse(output, mimetype=mimetype)
+class ordersDetail (DetailView):
+    model = Compra
+    template_name = 'orderInfoPage.html'
 
 def templateFormat(request, page):
 	formatt = request.GET.get('format')
