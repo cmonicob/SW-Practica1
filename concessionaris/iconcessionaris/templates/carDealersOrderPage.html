@@ -18,9 +18,9 @@
 	</head>
 	<body id="body">
 		<p id="p_tittle">Cotxes comprats en {{ carDealer }}</p>
-		{% if orders %}
+		{% if object_list %}
 		<ul>
-		{% for order in orders %}
+		{% for order in object_list %}
 		<li>
 		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.user.username }} - {{ order.model.preu }}€
 		</li>

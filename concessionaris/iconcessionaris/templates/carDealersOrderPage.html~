@@ -16,8 +16,8 @@
 		}
 	  </style>
 	</head>
-	<body>
-		<h1>Cotxes comprats en {{ carDealer }}</h1>
+	<body id="body">
+		<p id="p_tittle">Cotxes comprats en {{ carDealer }}</p>
 		{% if orders %}
 		<ul>
 		{% for order in orders %}

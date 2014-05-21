@@ -27,6 +27,7 @@ class CheckIsOwnerMixin(object):
         if not obj.user == self.request.user:
             raise PermissionDenied
         return obj
+
 def mainpage(request):
 	return render_to_response(
 		'mainpage.html',
@@ -59,13 +60,13 @@ class clientCreate(CreateView):
         form.instance.user = self.request.user
         return super(clientCreate, self).form_valid(form)
 
-class clientEdit(CreateView):
+class clientEdit(UpdateView):
     model = User
     template_name = 'form.html'
     form_class = ClientForm
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(clientCreate, self).form_valid(form)
+        return super(clientEdit, self).form_valid(form)
 
 
 class clientDelete(DeleteView):
@@ -84,6 +85,8 @@ class carDealersInfoPage (DetailView):
 class carDealersOrdersListPage (ListView):
     model = Compra
     template_name = 'carDealersOrderPage.html'
+    def get_queryset(self):
+        return Compra.objects.filter(cardealer=self.kwargs['pk'])
 
 class carDealersCreate(CreateView):
     model = Concessionari
@@ -91,7 +94,7 @@ class carDealersCreate(CreateView):
     form_class = CarDealerForm
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(cardealersCreate, self).form_valid(form)
+        return super(carDealersCreate, self).form_valid(form)
 
 #@login_required(login_url='/login')
 class carDealersDelete(DeleteView):
@@ -99,13 +102,23 @@ class carDealersDelete(DeleteView):
     template_name = 'delete.html'
     success_url = reverse_lazy('carDealer_list')
 
-class carDealersOrderCreate(CreateView):
-    model = Compra
+class carDealersEdit(UpdateView):
+    model = Concessionari
     template_name = 'form.html'
     form_class = CarDealerForm
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(carDealersOrderCreate, self).form_valid(form)
+        return super(carDealersEdit, self).form_valid(form)
+
+class ordersCreate(CreateView):
+    model = Compra
+    template_name = 'form.html'
+    form_class = OrderForm
+    success_url = reverse_lazy('client_list')
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ordersCreate, self).form_valid(form)
+
 
 class brandsListPage(ListView):
     model = Marca
@@ -129,9 +142,30 @@ class brandsCreate(CreateView):
         form.instance.user = self.request.user
         return super(brandsCreate, self).form_valid(form)
 
+class brandsEdit(UpdateView):
+    model = Marca
+    template_name = 'form.html'
+    form_class = BrandForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(brandsEdit, self).form_valid(form)
+
 class ordersDetail (DetailView):
     model = Compra
     template_name = 'orderInfoPage.html'
+
+class ordersDelete(DeleteView):
+    model = Compra
+    template_name = 'delete.html'
+    success_url = reverse_lazy('orders_list')
+
+class ordersEdit(UpdateView):
+    model = Compra
+    template_name = 'form.html'
+    form_class = OrderForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ordersEdit, self).form_valid(form)
 
 def templateFormat(request, page):
 	formatt = request.GET.get('format')

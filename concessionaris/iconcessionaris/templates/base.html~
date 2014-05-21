@@ -1,0 +1,34 @@
+<html>
+    <head>
+		<title>Concesionaris</title>
+	<link href="{{ MEDIA_URL }}images/base.css" rel="stylesheet" type="text/css" media="screen" />
+
+    </head>
+	<body id="body" onload="">
+		<div id="DIV_header">
+			<div id="DIV_header_int">
+				<div id="DIV_client">
+                    <img src="{{ MEDIA_URL }}images/logo_generic.png">
+                </div>
+                <div id="DIV_logo">
+                    <img src="{{ MEDIA_URL }}images/logo.png">
+                </div>
+			</div>
+			<div id="DIV_header_footer">
+				<p id='p_tittle' class='p_tittle'>Benvingut MarcPascualMarica</p>
+				<p class='p_tittle'>Aqui podra gestionar els seus cotxes!</p>
+			</div>
+        </div> 
+        <div id="DIV_body">
+			<div id ="DIV_body_left">
+				<!--<p id='p_tittle'>{{ pagetitle }}</p>-->
+
+				
+				<ul class='ul_menu'>
+					<li><a class="aes" href="clients">Clients </a></li>
+					<li><a class="aes" href="cardealers">Concessionaris </a></li>
+					<li><a class="aes" href="brands">Marques </a></li>
+				</ul>
+				<button class="button" onclick="">Sortir</button>
+			</div>
+			<div id='DIV_body_right'>

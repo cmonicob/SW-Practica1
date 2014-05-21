@@ -9,6 +9,12 @@ from django.core.urlresolvers import reverse
 User.add_to_class('direccio', models.CharField(max_length=250, blank=True))
 User.add_to_class('telefon', models.PositiveIntegerField(null=True, blank=True))
 
+def get_absolute_url(self):
+        return reverse('client_detail', kwargs={'pk': self.id}) 
+
+User.add_to_class('get_absolute_url', get_absolute_url)
+
+
 
 
 
@@ -45,8 +51,8 @@ class Peca(models.Model):
 
 class Compra(models.Model):
     
-    model = models.ForeignKey(Model)
+    marca = models.ForeignKey(Marca)
     concessionari = models.ForeignKey(Concessionari)
     user = models.ForeignKey(User)
     def __unicode__(self):
-        return self.user.username+" - "+self.model.name+" - "+self.concessionari.name
+        return self.user.username+" - "+self.marca.name+" - "+self.concessionari.name

@@ -1,0 +1,124 @@
+#body{
+    margin: 0 auto;
+    font-size: 10pt;
+    background-color: #DDDDDD;
+    width: 100%;
+    font-family: Arial;
+}
+
+#DIV_header{
+    width: 100%;
+    background: grey;
+}
+
+#DIV_header_int{
+    top: 0;
+    height: 86px;
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#DIV_header_footer{
+    width: 100%;
+    background: #DDDDDD;
+}
+
+#DIV_client{
+    float: left;
+    min-width: 400px;
+    height: 100%;
+    background-color: grey;
+}
+
+#DIV_logo{
+    position: absolute;
+    right: 0px;
+    min-width: 375px;
+    height: 100%;
+    text-align: center;
+    background-color: grey;
+}
+
+#DIV_body{
+    width: 100%;
+}
+
+#DIV_body_left{
+	margin-left: 15%;
+	margin-top: 2%;
+	float: left;
+	width: 20%;
+}
+
+#DIV_body_right{
+	margin-top: 2%;
+	float: left;
+	width: 55%;
+}
+
+#DIV_footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background: grey;
+}
+
+#DIV_footer_int{
+    bottom: 0;
+    height: 35px;
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    z-index: 10;
+    text-align: center;
+    line-height: 37px;
+    font-size: 16px;
+    background-color: grey;
+}
+
+.CENTER{
+    text-align: center;
+}
+
+.button{
+	margin-left: 25%;
+	background: none repeat scroll 0 0 #F8F8F8;
+	border: 1px solid #C6C6C6;
+	cursor: pointer;
+	width: 150px;
+	font-size: 25px;
+}
+.button:hover{
+	background: none repeat scroll 0 0 red;
+	color: white;
+}
+.aes:visited{
+	color: black;
+}
+.aes:hover{
+	color: red;
+}
+.aes{
+	color: black;
+	font-size: 20px;
+}
+
+p{
+	font-size: 22px;
+}
+
+#p_tittle {
+	font-size: 30px;
+}
+
+.p_tittle {
+	color: black;
+	margin: 0px;
+	padding-top: 15px;
+	padding-left: 15%;
+}
+
+.ul_menu{
+	padding: 30px;
+}

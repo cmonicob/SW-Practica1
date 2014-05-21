@@ -35,7 +35,7 @@ class Marca(models.Model):
     def __unicode__(self):
         return self.name
 
-
+'''
 class Model(models.Model):
     name = models.CharField(max_length=40)
     marca = models.ForeignKey(Marca)
@@ -48,11 +48,12 @@ class Peca(models.Model):
     model = models.ForeignKey(Model)
     def __unicode__(self):
         return self.name
+'''
 
 class Compra(models.Model):
     
-    model = models.ForeignKey(Model)
+    marca = models.ForeignKey(Marca)
     concessionari = models.ForeignKey(Concessionari)
     user = models.ForeignKey(User)
     def __unicode__(self):
-        return self.user.username+" - "+self.model.name+" - "+self.concessionari.name
+        return self.user.username+" - "+self.marca.name+" - "+self.concessionari.name
