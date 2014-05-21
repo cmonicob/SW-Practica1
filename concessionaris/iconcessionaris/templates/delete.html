@@ -1,0 +1,12 @@
+
+{% block content %}
+<h2>Segur que vols esborrar el objecte?</h2>
+	<form method="post" action="">
+		{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<input type="submit" value="Si"/>
+		<input type="button" onclick="history.back()" value="No"/> 
+	</form>
+{% endblock %}

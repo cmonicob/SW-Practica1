@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Brands List</title>
+    <title>Llista de marques</title>
 	<style type="text/css">
 		#body {
 		background-color: #DDDDDD;
@@ -27,9 +27,9 @@
   </head>
   <body id="body">
     <p id="p_tittle">Brands List</p>
-    {% if object %}
+    {% if object_list %}
       <ul>
-        {% for marca in object %}
+        {% for marca in object_list %}
         <li>
         <a class="aes" href="{{ marca.id}}">{{ marca.name}} </a>
         </li>

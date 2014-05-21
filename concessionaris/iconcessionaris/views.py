@@ -5,15 +5,28 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, get_object_or_404	
 from iconcessionaris.models import *
 from django.contrib.auth import logout
-from django.core.urlresolvers import reverse	
-from django.views.generic import CreateView, ListView, UpdateView, DetailView	
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.views.generic import ListView, UpdateView, DetailView 
+from django.views.generic.edit import DeleteView, CreateView
 from forms import *	
-  
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+class LoginRequiredMixin(object):
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
+
+class CheckIsOwnerMixin(object):
+    def get_object(self, *args, **kwargs):
+        obj = super(CheckIsOwnerMixin, self).get_object(*args, **kwargs)
+        if not obj.user == self.request.user:
+            raise PermissionDenied
+        return obj
 
 def mainpage(request):
 	return render_to_response(
@@ -55,6 +68,12 @@ class clientEdit(CreateView):
         form.instance.user = self.request.user
         return super(clientCreate, self).form_valid(form)
 
+
+class clientDelete(DeleteView):
+    model = User
+    template_name = 'delete.html'
+    success_url = reverse_lazy('client_list')
+
 class carDealersListPage (ListView):
     model = Concessionari
     template_name = 'carDealersListPage.html'
@@ -67,13 +86,19 @@ class carDealersOrdersListPage (ListView):
     model = Compra
     template_name = 'carDealersOrderPage.html'
 
-class cardealersCreate(CreateView):
+class carDealersCreate(CreateView):
     model = Concessionari
     template_name = 'form.html'
     form_class = CarDealerForm
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(cardealersCreate, self).form_valid(form)
+
+#@login_required(login_url='/login')
+class carDealersDelete(DeleteView):
+    model = Concessionari
+    template_name = 'delete.html'
+    success_url = reverse_lazy('carDealer_list')
 
 class carDealersOrderCreate(CreateView):
     model = Compra
@@ -90,6 +115,12 @@ class brandsListPage(ListView):
 class brandsDetail(DetailView):
     model = Marca
     template_name = 'brandsInfoPage.html'
+
+#@login_required()
+class brandsDelete(DeleteView):
+    model = Marca
+    template_name = 'delete.html'
+    success_url = reverse_lazy('brand_list')
 
 class brandsCreate(CreateView):
     model = Marca
