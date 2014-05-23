@@ -114,10 +114,7 @@ class ordersCreate(CreateView):
     model = Compra
     template_name = 'form.html'
     form_class = OrderForm
-    success_url = reverse_lazy('client_list')
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(ordersCreate, self).form_valid(form)
+    success_url = reverse_lazy('order_list')
 
 
 class brandsListPage(ListView):
@@ -150,6 +147,10 @@ class brandsEdit(UpdateView):
         form.instance.user = self.request.user
         return super(brandsEdit, self).form_valid(form)
 
+class ordersListPage(ListView):
+    model = Compra
+    template_name = 'orderListPage.html'
+
 class ordersDetail (DetailView):
     model = Compra
     template_name = 'orderInfoPage.html'
@@ -157,15 +158,11 @@ class ordersDetail (DetailView):
 class ordersDelete(DeleteView):
     model = Compra
     template_name = 'delete.html'
-    success_url = reverse_lazy('orders_list')
+    success_url = reverse_lazy('order_list')
 
-class ordersEdit(UpdateView):
-    model = Compra
+class ordersEdit(LoginRequiredMixin, CheckIsOwnerMixin, UpdateView):
     template_name = 'form.html'
-    form_class = OrderForm
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(ordersEdit, self).form_valid(form)
+    success_url = reverse_lazy('order_list')
 
 def templateFormat(request, page):
 	formatt = request.GET.get('format')

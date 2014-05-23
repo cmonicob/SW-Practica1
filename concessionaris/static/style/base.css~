@@ -127,3 +127,11 @@ p{
 	padding: 30px;
 }
 
+input{
+	margin-left: 25%;
+	background: none repeat scroll 0 0 #F8F8F8;
+	border: 1px solid #C6C6C6;
+	cursor: pointer;
+	width: 150px;
+	font-size: 25px;
+}

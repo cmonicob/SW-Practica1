@@ -1,20 +1,7 @@
+{% include "base.html" %}
 <html>
   <head>
     <title>Informacio concessionari</title>
-    <style type="text/css">
-		#body {
-		background-color: #DDDDDD;
-		font-family: Arial;
-		font-size: 12pt;
-		margin: 0 auto;
-		width: 100%;
-		padding: 20px;	
-		}
-  		#p_tittle {
-	    	color: black;
-		font-size: 30px;
-		}
-	  </style>
   </head>
   <body id="body">
     <p id="p_tittle">Informacio concessionari</p>
@@ -25,5 +12,8 @@
     {% else %}
       <p>No existeix aquest concessionari.</p>
     {% endif %}
+    <button class="button" onclick="window.location.href='delete'">Eliminar concessionari</button>
+    <button class="button" onclick="window.location.href='edit'">Editar concessionari</button>
   </body>
 </html>
+{% include "footer.html" %}

@@ -42,23 +42,24 @@
 
 #DIV_body{
     width: 100%;
+    
 }
 
 #DIV_body_left{
-	border-style:solid;
-	border-left:thick double #ff0000;
-	border-width:5px;
+	border-right: solid;
 	margin-left: 15%;
 	margin-top: 2%;
 	float: left;
 	width: 20%;
+	min-height: 60%;
 }
 
 #DIV_body_right{
-	border-style:solid;
-	margin-top: 2%;
+	margin-left: 15px;
+	margin-top: 2px;
 	float: left;
 	width: 55%;
+	min-height: 60%;
 }
 
 #DIV_footer{
@@ -86,6 +87,14 @@
 }
 
 .button{
+	margin-left: 10px;
+	background: none repeat scroll 0 0 #F8F8F8;
+	border: 1px solid #C6C6C6;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.logout{
 	margin-left: 25%;
 	background: none repeat scroll 0 0 #F8F8F8;
 	border: 1px solid #C6C6C6;
@@ -93,10 +102,11 @@
 	width: 150px;
 	font-size: 25px;
 }
-.button:hover{
+.logout:hover{
 	background: none repeat scroll 0 0 red;
 	color: white;
 }
+
 .aes:visited{
 	color: black;
 }
@@ -126,4 +136,3 @@ p{
 .ul_menu{
 	padding: 30px;
 }
-

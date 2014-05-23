@@ -1,20 +1,7 @@
+{% include "base.html" %}
 <html>
 	<head>
 		<title>{{ carDealer }}</title>
-		<style type="text/css">
-		#body {
-		background-color: #DDDDDD;
-		font-family: Arial;
-		font-size: 12pt;
-		margin: 0 auto;
-		width: 100%;
-		padding: 20px;	
-		}
-  		#p_tittle {
-	    	color: black;
-		font-size: 30px;
-		}
-	  </style>
 	</head>
 	<body id="body">
 		<p id="p_tittle">Cotxes comprats en {{ carDealer }}</p>
@@ -31,3 +18,4 @@
 		{% endif %}
 	</body>
 </html>
+{% include "footer.html" %}

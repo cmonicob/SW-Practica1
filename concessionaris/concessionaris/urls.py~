@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     # Car Dealers pages
     url(r'^cardealers/$',carDealersListPage.as_view(), name='carDealer_list'),
     url(r'^cardealers/(?P<pk>\d+)/$', carDealersInfoPage.as_view(), name='carDealer_detail'),
-    url(r'^cardealers/(?P<pk>\d+)/orders$', carDealersOrdersListPage.as_view(), name='order_list'),
+    url(r'^cardealers/(?P<pk>\d+)/orders$', carDealersOrdersListPage.as_view(), name='carDealerOrder_list'),
     url(r'^cardealers/create$', carDealersCreate.as_view(), name='carDealer_create'),
     url(r'^cardealers/(?P<pk>\d+)/edit$', carDealersEdit.as_view(), name='carDealer_edit'),
     url(r'^cardealers/(?P<pk>\d+)/delete$', carDealersDelete.as_view(), name='carDealer_delete'),
@@ -30,8 +30,9 @@ urlpatterns = patterns('',
     url(r'^brands/(?P<pk>\d+)/edit$', brandsEdit.as_view(), name='brand_edit'),
     url(r'^brands/(?P<pk>\d+)/delete$', brandsDelete.as_view(), name='brand_delete'),
     # Orders pages
+    url(r'^orders/$', ordersListPage.as_view(), name='order_list'),
     url(r'^orders/(?P<pk>\d+)/$', ordersDetail.as_view(), name='order_detail'),
-    url(r'^orders/(?P<pk>\d+)/edit$', ordersEdit.as_view(), name='order_edit'),
+    url(r'^orders/(?P<pk>\d+)/edit$', LoginRequiredCheckIsOwnerUpdateView.as_view(model=Compra, form_class=OrderForm), name='order_edit'),
     url(r'^orders/create$', ordersCreate.as_view(), name='order_create'),
     url(r'^orders/(?P<pk>\d+)/delete$', ordersDelete.as_view(), name='order_delete'),
     url(r'^login/$', 'django.contrib.auth.views.login'),
@@ -42,10 +43,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT, }),
-        )
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-	url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-		    {'document_root': settings.STATIC_ROOT, }),
-		)
+	)

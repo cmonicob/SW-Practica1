@@ -1,23 +1,10 @@
+{% include "base.html" %}
 <html>
 	<head>
 		<title>{{ object_list.id }} Ordres</title>
-		<style type="text/css">
-		#body {
-		background-color: #DDDDDD;
-		font-family: Arial;
-		font-size: 12pt;
-		margin: 0 auto;
-		width: 100%;
-		padding: 20px;	
-		}
-  		#p_tittle {
-	    	color: black;
-		font-size: 30px;
-		}
-	  </style>
 	</head>
 	<body id="body">
-		<p id="p_tittle">Cotxes comprats per {{ object_list.id }}</p>
+		<p id="p_tittle">Cotxes comprats per {{ self.id }}</p>
 		{% if object_list %}
 		<ul>
 		{% for order in object_list %}
@@ -29,5 +16,8 @@
 		{% else %}
 		<p>No ha comprat cotxes.</p>
 		{% endif %}
+		<button class="button" onclick="window.location.href='delete'">Eliminar ordre</button>
+    		<button class="button" onclick="window.location.href='edit'">Editar ordre</button>
 	</body>
 </html>
+{% include "footer.html" %}

@@ -1,29 +1,17 @@
+{% include "base.html" %}
 <html>
   <head>
     <title>Informacio usuari</title>
-	<style type="text/css">
-		#body {
-		background-color: #DDDDDD;
-		font-family: Arial;
-		font-size: 12pt;
-		margin: 0 auto;
-		width: 100%;
-		padding: 20px;	
-		}
-  		#p_tittle {
-	    	color: black;
-		font-size: 30px;
-		}
-	  </style>
   </head>
   <body id="body">
     <p id="p_tittle">Informacio usuari</p>
-    {% if client %}
+    {% if object %}
       <p>
-        {{ client.username}} - {{ client.email }} - {{ client.first_name }}  {{ client.last_name }}
+        {{ object.username}} - {{ object.email }} - {{ object.first_name }}  {{ object.last_name }}
       </p>
     {% else %}
       <p>No existeix aquest usuari.</p>
     {% endif %}
   </body>
 </html>
+{% include "footer.html" %}

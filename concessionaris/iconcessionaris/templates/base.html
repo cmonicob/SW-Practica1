@@ -1,8 +1,10 @@
 <html>
     <head>
-		<title>Concesionaris</title>
+	<title>Concesionaris</title>
 	<link href="{{ MEDIA_URL }}images/base.css" rel="stylesheet" type="text/css" media="screen" />
-
+      	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+      	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     </head>
 	<body id="body" onload="">
 		<div id="DIV_header">
@@ -15,7 +17,7 @@
                 </div>
 			</div>
 			<div id="DIV_header_footer">
-				<p id='p_tittle' class='p_tittle'>Benvingut MarcPascualMarica</p>
+				<p id='p_tittle' class='p_tittle'>Benvingut </p>
 				<p class='p_tittle'>Aqui podra gestionar els seus cotxes!</p>
 			</div>
         </div> 
@@ -25,10 +27,11 @@
 
 				
 				<ul class='ul_menu'>
-					<li><a class="aes" href="clients">Clients </a></li>
-					<li><a class="aes" href="cardealers">Concessionaris </a></li>
-					<li><a class="aes" href="brands">Marques </a></li>
+					<li><a class="aes" href="/clients">Clients </a></li>
+					<li><a class="aes" href="/cardealers">Concessionaris </a></li>
+					<li><a class="aes" href="/brands">Marques </a></li>
+					<li><a class="aes" href="/orders">Ordres </a></li>
 				</ul>
-				<button class="button" onclick="">Sortir</button>
+				<button class="logout" onclick="window.location.href='/logout/'">Sortir</button>
 			</div>
 			<div id='DIV_body_right'>

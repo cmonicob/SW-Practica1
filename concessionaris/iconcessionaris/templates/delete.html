@@ -1,4 +1,4 @@
-
+{% include "base.html" %}
 {% block content %}
 <h2>Segur que vols esborrar el objecte?</h2>
 	<form method="post" action="">
@@ -10,3 +10,4 @@
 		<input type="button" onclick="history.back()" value="No"/> 
 	</form>
 {% endblock %}
+{% include "footer.html" %}

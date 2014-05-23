@@ -1,4 +1,4 @@
-{% extends "base.html" %}	
+{% include "base.html" %}	
 {% block content %}	
   
 <form method="post" action="">	
@@ -13,3 +13,38 @@
 </form>	
   
 {% endblock %}
+{% include "footer.html" %}
+
+<script>
+        $(function() {
+            $("#id_address").autocomplete({
+                source: function( request, response ) {
+                    $.ajax({
+                        url: "http://ws.geonames.org/searchJSON",
+                        dataType: "jsonp",
+                        data: {
+                            featureClass: "P",
+                            maxRows: 10,
+                            name_startsWith: request.term,
+                            username: "sistemeswebmcm"
+                        },
+                        success: function( data ) {
+                            response( $.map( data.geonames, function( item ) {
+                                return {
+                                    value: item.name,
+                                    name: item.street
+                                }
+                            }));
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function( event, ui ) {
+                   $("#id_address").val(ui.item.countryName);
+                }
+            });
+        });
+    </script>
+  	
+  
+

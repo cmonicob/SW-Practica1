@@ -1,32 +1,10 @@
+{% include "base.html" %}
 <html>
   <head>
     <title>Llista de marques</title>
-	<style type="text/css">
-		#body {
-		background-color: #DDDDDD;
-		font-family: Arial;
-		font-size: 12pt;
-		margin: 0 auto;
-		width: 100%;
-		padding: 20px;		
-		}
-		.aes:visited{
-		color: black;
-		}
-		.aes:hover{
-		color: red;
-		}
-		.aes{
-		color: black;
-		}
-  		#p_tittle {
-	    	color: black;
-		font-size: 30px; 
-		}
-	  </style>
   </head>
   <body id="body">
-    <p id="p_tittle">Brands List</p>
+    <p id="p_tittle">Llista de marques</p>
     {% if object_list %}
       <ul>
         {% for marca in object_list %}
@@ -38,5 +16,7 @@
     {% else %}
       <p>No hi han marques.</p>
     {% endif %}
+    <button class="button" onclick="window.location.href='create'">Afegir Marca</button>
   </body>
 </html>
+{% include "footer.html" %}

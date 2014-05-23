@@ -1,0 +1,21 @@
+{% include "base.html" %}
+<html>
+  <head>
+    <title>Orders</title>
+  </head>
+  <body id="body">
+<p id="p_tittle">Ordres</p>
+    {% if object_list %}
+      <ul>
+        {% for order in object_list %}
+        <p> 1 </p>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No hi han Ordres.</p>
+    {% endif %}
+    <button class="button" onclick="window.location.href='create'">Afegir Ordre</button>
+  </body>
+</html>
+{% include "footer.html" %}
+

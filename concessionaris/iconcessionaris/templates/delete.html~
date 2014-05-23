@@ -1,6 +1,6 @@
 
 {% block content %}
-<h2>Segur que vols esborrar el objecte?</h1>
+<h2>Segur que vols esborrar el objecte?</h2>
 	<form method="post" action="">
 		{% csrf_token %}
 		<table>
