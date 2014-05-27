@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     # Car Dealers pages
     url(r'^cardealers/$',carDealersListPage.as_view(), name='carDealer_list'),
     url(r'^cardealers/(?P<pk>\d+)/$', carDealersInfoPage.as_view(), name='carDealer_detail'),
+    url(r'^cardealers/(?P<pk>\d+)/review/$', reviewListPage.as_view(), name='review_list'),
     url(r'^cardealers/(?P<pk>\d+)/orders$', carDealersOrdersListPage.as_view(), name='carDealerOrder_list'),
     url(r'^cardealers/create$', carDealersCreate.as_view(), name='carDealer_create'),
     url(r'^cardealers/(?P<pk>\d+)/edit$', carDealersEdit.as_view(), name='carDealer_edit'),
@@ -35,6 +36,15 @@ urlpatterns = patterns('',
     url(r'^orders/(?P<pk>\d+)/edit$', ordersEdit.as_view(model=Compra, form_class=OrderForm), name='order_edit'),
     url(r'^orders/create$', ordersCreate.as_view(), name='order_create'),
     url(r'^orders/(?P<pk>\d+)/delete$', ordersDelete.as_view(), name='order_delete'),
+    # Reviews pages
+    url(r'^review/$', reviewListPage.as_view(), name='review_list'),
+    url(r'^review/(?P<pk>\d+)/$', reviewDetail.as_view(), name='review_detail'),
+    url(r'^review/(?P<pk>\d+)/edit$', reviewEdit.as_view(model=Review, form_class=ReviewForm), name='review_create'),
+    url(r'^review/create$', reviewCreate.as_view(), name='review_create'),
+    url(r'^review/(?P<pk>\d+)/delete/$', reviewDelete.as_view(), name='review_delete'),
+    
+
+
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', user_logout),
 )
@@ -44,3 +54,4 @@ if settings.DEBUG:
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT, }),
 	)
+

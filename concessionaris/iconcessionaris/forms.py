@@ -30,5 +30,9 @@ class CarDealerForm(ModelForm):
 class BrandForm(ModelForm):	
 	class Meta:	
 		model = Marca	
+
+class ReviewForm(ModelForm):	
+	class Meta:	
+		model = Review	
 	
 

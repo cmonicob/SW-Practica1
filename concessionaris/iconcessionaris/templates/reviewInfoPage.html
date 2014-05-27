@@ -1,0 +1,21 @@
+{% include "base.html" %}
+<html>
+  <head>
+    <title>Review</title>
+  </head>
+  <body id="body">
+    <p id="p_tittle">Review</p>
+    {% if object %}
+  	<p>Concessionari: {{ object.concessionari.name}} </p>
+	<p>Creada per: {{ object.user.username }}</p>
+	<p>Valoració: {{ object.valoracio }}</p>
+	<p>Comentari:</p>
+	<p class='p_comentari'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ object.comentari }}</p>
+    {% else %}
+      <p>No existeix aquesta Review.</p>
+    {% endif %}
+    <button class="button" onclick="window.location.href='delete'">Eliminar review</button>
+    <button class="button" onclick="window.location.href='edit'">Editar review</button>
+  </body>
+</html>
+{% include "footer.html" %}

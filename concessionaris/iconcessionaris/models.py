@@ -57,3 +57,12 @@ class Compra(models.Model):
     user = models.ForeignKey(User)
     def __unicode__(self):
         return self.user.username+" - "+self.marca.name+" - "+self.concessionari.name
+
+class Review(models.Model):
+    
+    concessionari = models.ForeignKey(Concessionari)
+    user = models.ForeignKey(User)
+    valoracio = models.IntegerField()
+    comentari = models.CharField(max_length=400)
+    def __unicode__(self):
+        return self.user.username+" - "+self.marca.name+" - "+self.concessionari.name

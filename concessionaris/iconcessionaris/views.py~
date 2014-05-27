@@ -12,6 +12,7 @@ from forms import *
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
+
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
@@ -125,7 +126,6 @@ class brandsDetail(DetailView):
     model = Marca
     template_name = 'brandsInfoPage.html'
 
-#@login_required()
 class brandsDelete(DeleteView):
     model = Marca
     template_name = 'delete.html'
@@ -161,7 +161,39 @@ class ordersDelete(DeleteView):
     success_url = reverse_lazy('order_list')
 
 class ordersEdit(LoginRequiredMixin, CheckIsOwnerMixin, UpdateView):
-    	template_name = 'form.html'
+    template_name = 'form.html'
+    success_url = reverse_lazy('order_list')
+
+#Reviews
+class reviewCreate(CreateView):
+    model = Review
+    template_name = 'form.html'
+    form_class = ReviewForm
+    success_url = reverse_lazy('review_list')
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(reviewCreate, self).form_valid(form)
+
+class reviewListPage(ListView):
+    model = Review
+    template_name = 'reviewListPage.html'
+
+class reviewDetail (DetailView):
+    model = Review
+    template_name = 'reviewInfoPage.html'
+
+class reviewDelete(DeleteView):
+    model = Review
+    template_name = 'delete.html'
+    success_url = reverse_lazy('review_list')
+
+class reviewEdit(LoginRequiredMixin, CheckIsOwnerMixin, UpdateView):
+    template_name = 'form.html'
+    success_url = reverse_lazy('review_list')
+
+class ordersEdit(LoginRequiredMixin, CheckIsOwnerMixin, UpdateView):
+    template_name = 'form.html'
+    success_url = reverse_lazy('order_list')
 
 def templateFormat(request, page):
 	formatt = request.GET.get('format')
@@ -171,3 +203,4 @@ def templateFormat(request, page):
 		return get_template("json/"+page+'.json'),"application/json"
 	else :
 		return get_template(page+'.html'),""
+
