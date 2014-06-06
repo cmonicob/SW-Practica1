@@ -10,28 +10,28 @@
 		<div id="DIV_header" vocab='http://schema.org/'>
 			<div id="DIV_header_int">
 				<div id="DIV_client">
-                    <img src="{{ MEDIA_URL }}images/logo_generic.png">
-                </div>
-                <div id="DIV_logo">
-                    <img src="{{ MEDIA_URL }}images/logo.png">
-                </div>
-			</div>
-			<div id="DIV_header_footer">
-				<p id='p_tittle' class='p_tittle'>Benvingut </p>
-				<p class='p_tittle'>Aqui podra gestionar els seus cotxes!</p>
+                			<img src="{{ MEDIA_URL }}images/logo_generic.png" typeof="MediaObject" property="thumbnail">
+                		</div>
+	                <div id="DIV_logo">
+	                    <img src="{{ MEDIA_URL }}images/logo.png" typeof="MediaObject" property="thumbnail">
+	                </div>
+		</div>
+			<div id="DIV_header_footer"  typeof="CreativeWork">
+				<p id='p_tittle' class='p_tittle' property="commentText">Benvingut </p>
+				<p class='p_tittle' property="commentText">Aqui podra gestionar els seus cotxes!</p>
 			</div>
         </div> 
-        <div id="DIV_body">
+        <div id="DIV_body" vocab="http://schema.org/" typeof="LocalBusiness">
 			<div id ="DIV_body_left">
 				<!--<p id='p_tittle'>{{ pagetitle }}</p>-->
 
 				
-				<ul class='ul_menu'>
-					<li><a class="aes" href="/clients">Clients </a></li>
-					<li><a class="aes" href="/cardealers">Concessionaris </a></li>
-					<li><a class="aes" href="/brands">Marques </a></li>
-					<li><a class="aes" href="/orders">Ordres </a></li>
-					<li><a class="aes" href="/review">Reviews </a></li>
+				<ul class='ul_menu' typeof="ItemList">
+					<li><a class="aes" href="/clients" property="itemListElement">Clients </a></li>
+					<li><a class="aes" href="/cardealers" property="itemListElement">Concessionaris </a></li>
+					<li><a class="aes" href="/brands" property="itemListElement">Marques </a></li>
+					<li><a class="aes" href="/orders" property="itemListElement">Ordres </a></li>
+					<li><a class="aes" href="/review" property="itemListElement">Reviews </a></li>
 				</ul>
 				<button class="logout" onclick="window.location.href='/logout/'">Sortir</button>
 			</div>

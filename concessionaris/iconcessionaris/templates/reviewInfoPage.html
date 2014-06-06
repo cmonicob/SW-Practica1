@@ -3,19 +3,22 @@
   <head>
     <title>Review</title>
   </head>
-  <body id="body">
+  <body id="body" >
     <p id="p_tittle">Review</p>
     {% if object %}
-  	<p>Concessionari: {{ object.concessionari.name}} </p>
-	<p>Creada per: {{ object.user.username }}</p>
-	<p>Valoració: {{ object.valoracio }}</p>
+      <span typeof="Review">
+  	<p>Concessionari: <span property="itemReviewed"> {{ object.concessionari.name}}</span></p>
+	<p>Creada per: <span property="author">{{ object.user.username }}</span></p>
+	<p>Valoració: <span property="ratingValue">{{ object.valoracio }}</span></p>
 	<p>Comentari:</p>
-	<p class='p_comentari'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ object.comentari }}</p>
+	<p class='p_comentari'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	                       <span property="description">{{ object.comentari }}</span></p>
+      </span>      
+      <button class="button" onclick="window.location.href='delete'">Eliminar review</button>
+      <button class="button" onclick="window.location.href='edit'">Editar review</button>
     {% else %}
       <p>No existeix aquesta Review.</p>
     {% endif %}
-    <button class="button" onclick="window.location.href='delete'">Eliminar review</button>
-    <button class="button" onclick="window.location.href='edit'">Editar review</button>
   </body>
 </html>
 {% include "footer.html" %}
