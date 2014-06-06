@@ -1,22 +1,15 @@
 {% include "base.html" %}
-<html>
-  <head>
-    <title>Llista de marques</title>
-  </head>
-  <body id="body">
-    <p id="p_tittle">Llista de marques</p>
+    <p id="p_tittle" typeof="Brand" property="alternateName">Llista de marques</p>
     {% if object_list %}
-      <ul>
+      <ul typeof="ItemList">
         {% for marca in object_list %}
-        <li>
+        <li property="itemListElement">
         <a class="aes" href="{{ marca.id }}">{{ marca.name}} </a>
         </li>
         {% endfor %}
       </ul>
     {% else %}
-      <p>No hi han marques.</p>
+      <p typeof="Brand" property="alternateName">No hi han marques.</p>
     {% endif %}
     <button class="button" onclick="window.location.href='create'">Afegir Marca</button>
-  </body>
-</html>
 {% include "footer.html" %}
