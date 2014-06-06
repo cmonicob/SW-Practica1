@@ -31,7 +31,7 @@
 					<li><a class="aes" href="/cardealers">Concessionaris </a></li>
 					<li><a class="aes" href="/brands">Marques </a></li>
 					<li><a class="aes" href="/orders">Ordres </a></li>
-					<li><a class="aes" href="/review">Review </a></li>
+					<li><a class="aes" href="/review">Reviews </a></li>
 				</ul>
 				<button class="logout" onclick="window.location.href='/logout/'">Sortir</button>
 			</div>
