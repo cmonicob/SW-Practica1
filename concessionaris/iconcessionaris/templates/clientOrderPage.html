@@ -1,20 +1,20 @@
 {% include "base.html" %}
 <html>
 	<head>
-		<title>{{ object_list.id }} Ordres</title>
+		<title typeof="CreativeWork" property="headline">{{ object_list.id }} Ordres</title>
 	</head>
 	<body id="body">
-		<p id="p_tittle">Cotxes comprats per {{ self.id }}</p>
+		<p id="p_tittle" typeof="CreativeWork" property="headline">Cotxes comprats per {{ self.id }}</p>
 		{% if object_list %}
-		<ul>
+		<ul typeof="ItemList">
 		{% for order in object_list %}
-		<li>
+		<li property="itemListElement">
 		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.concessionari.name }} - {{ order.model.preu }}€
 		</li>
 		{% endfor %}
 		</ul>
 		{% else %}
-		<p>No ha comprat cotxes.</p>
+		<p typeof="Thing" property="alternateName">No ha comprat cotxes.</p>
 		{% endif %}
 	</body>
 </html>
