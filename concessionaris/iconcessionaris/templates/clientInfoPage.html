@@ -1,12 +1,14 @@
 {% include "base.html" %}
-    <p id="p_tittle" typeof="CreativeWork" property="commentText" >Informacio usuari</p>
-    {% if object %}
-      <p typeof="Person" property="description">
-        {{ object.username}} - {{ object.email }} - {{ object.first_name }}  {{ object.last_name }}
-      </p>
-    {% else %}
-      <p typeof="CreativeWork" property="commentText"> No existeix aquest usuari.</p>
-    {% endif %}
-    <button class="button" onclick="window.location.href='delete'">Eliminar client</button>
-    <button class="button" onclick="window.location.href='edit'">Editar client</button>
+    <span typeof="CreativeWork">
+        <p id="p_tittle" property="commentText" >Informacio usuari</p>
+        {% if object %}
+          <p typeof="Person" property="description">
+            {{ object.username}} - {{ object.email }} - {{ object.first_name }}  {{ object.last_name }}
+          </p>
+        {% else %}
+          <p property="commentText"> No existeix aquest usuari.</p>
+        {% endif %}
+        <button class="button" onclick="window.location.href='delete'">Eliminar client</button>
+        <button class="button" onclick="window.location.href='edit'">Editar client</button>
+    </span>
 {% include "footer.html" %}
