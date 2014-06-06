@@ -1,19 +1,14 @@
 {% include "base.html" %}
-<html>
-  <head>
-    <title>Informacio compra</title>
-  </head>
-  <body id="body">
-    <p id="p_tittle">Informacio compra</p>
+<span typeof="OrderAction">
+    <p id="p_tittle" property="name">Informacio compra</p>
     {% if object %}
-  	<p>Marca: {{ object.marca.name}} </p>
-	<p>Concessionari: {{ object.concessionari.name }}</p>
-	<p>Client: {{ object.user.username }}</p>
+  	<p>Marca: <span property="object">{{ object.marca.name}}</span> </p>
+	<p>Concessionari: <span property="agent">{{ object.concessionari.name }}</span></p>
+	<p>Client: <span property="participant">{{ object.user.username }}</span></p>
     {% else %}
       <p>No existeix aquesta Compra.</p>
     {% endif %}
+</span>
     <button class="button" onclick="window.location.href='delete'">Eliminar ordre</button>
     <button class="button" onclick="window.location.href='edit'">Editar ordre</button>
-  </body>
-</html>
 {% include "footer.html" %}
