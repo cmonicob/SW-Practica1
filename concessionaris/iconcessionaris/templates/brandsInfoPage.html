@@ -1,12 +1,14 @@
 {% include "base.html" %}
-    <p id="p_tittle" typeof="Brand" property="alternateName">Informacio marca</p>
-    {% if object %}
-      <p typeof="Brand" property="name">
-        * {{ object.name}} 
-      </p>
-    {% else %}
-      <p typeof="Brand" property="description">No existeix aquesta marca.</p>
-    {% endif %}
-    <button class="button" onclick="window.location.href='delete'">Eliminar Marca</button>
-    <button class="button" onclick="window.location.href='edit'">Editar Marca</button>
+    <span typeof="Brand">
+        <p id="p_tittle" property="alternateName">Informacio marca</p>
+        {% if object %}
+          <p property="name">
+            * {{ object.name}} 
+          </p>
+        {% else %}
+          <p property="description">No existeix aquesta marca.</p>
+        {% endif %}
+        <button class="button" onclick="window.location.href='delete'">Eliminar Marca</button>
+        <button class="button" onclick="window.location.href='edit'">Editar Marca</button>
+    </span>
 {% include "footer.html" %}
