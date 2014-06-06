@@ -4,7 +4,7 @@
 		<title>{{ carDealer }}</title>
 	</head>
 	<body id="body">
-		<p id="p_tittle" property="commentText">Cotxes comprats en {{ carDealer }}</p>
+		<p id="p_tittle" typeof="CreativeWork" property="commentText">Cotxes comprats en {{ carDealer }}</p>
 		{% if object_list %}
 		<ul typeof="ItemList">
 		{% for order in object_list %}
@@ -14,7 +14,7 @@
 		{% endfor %}
 		</ul>
 		{% else %}
-		<p property="commentText">No ha comprat cotxes.</p>
+		<p typeof="CreativeWork" property="commentText">No ha comprat cotxes.</p>
 		{% endif %}
 	</body>
 </html>
