@@ -1,15 +1,15 @@
 {% include "base.html" %}	
-<p id="p_tittle">Llista usuaris</p>
+<p id="p_tittle" typeof="CreativeWork" property="headline">Llista usuaris</p>
     {% if object_list %}
-      <ul>
+      <ul typeof="ItemList">
         {% for client in object_list %}
-        <li>
+        <li property="itemListElement">
         <a class="aes" href="{{ client.id}}">{{ client.username}} </a>
         </li>
         {% endfor %}
       </ul>
     {% else %}
-      <p>No han clients.</p>
+      <p typeof="Thing" property="alternateName">No han clients.</p>
     {% endif %}
     <button class="button" onclick="window.location.href='create'">Afegir Client</button>
 {% include "footer.html" %}

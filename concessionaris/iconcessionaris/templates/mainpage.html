@@ -40,18 +40,18 @@
 		}
 	  </style>
 	</head>
-		<body id="body">
-		<div id="DIV_main"><p id='p_tittle'>{{ pagetitle }}</p>
+		<body id="body" vocab="http://schema.org/" typeof="LocalBusiness">
+		<div id="DIV_main" typeof="CreativeWork"><p id='p_tittle'>{{ pagetitle }}</p>
 		{% if user.username %}
 
-		<p>Benvingut {{ user.username }}!
+		<p property="commentText">Benvingut {{ user.username }}!
 		Aquí podrà gestionar els seus cotxes!</p>
-		<ul>
-			<li><a class="aes" href="clients">Clients </a></li>
-			<li><a class="aes" href="cardealers">Concessionaris </a></li>
-			<li><a class="aes" href="brands">Marques </a></li>
-			<li><a class="aes" href="orders">Ordres </a></li>
-			<li><a class="aes" href="review">Reviews </a></li>
+		<ul typeof="ItemList">
+			<li><a class="aes" href="clients" property="itemListElement">Clients </a></li>
+			<li><a class="aes" href="cardealers" property="itemListElement">Concessionaris </a></li>
+			<li><a class="aes" href="brands" property="itemListElement">Marques </a></li>
+			<li><a class="aes" href="orders" property="itemListElement">Ordres </a></li>
+			<li><a class="aes" href="review" property="itemListElement">Reviews </a></li>
 		</ul>
 		<button class="button" onclick="window.location.href='/logout/'">Sortir</button>
 		{% else %}

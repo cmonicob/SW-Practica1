@@ -1,22 +1,17 @@
 {% include "base.html" %}
-<html>
-  <head>
-    <title>Concessionaris</title>
-  </head>
-  <body id="body">
-<p id="p_tittle">Concessionaris</p>
-    {% if object_list %}
-      <ul>
-        {% for carDealer in object_list %}
-        <li>
-        <a class="aes" href="{{ carDealer.id}}">{{ carDealer.name}} </a>
-        </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No hi han Concessionaris.</p>
-    {% endif %}
-    <button class="button" onclick="window.location.href='create'">Afegir Concessionari</button>
-  </body>
-</html>
+    	<span typeof="AutoDealer">
+            <p id="p_tittle">Concessionaris</p>
+                {% if object_list %}
+                  <ul typeof="ItemList">
+                    {% for carDealer in object_list %}
+                    <li property="itemListElement">
+                    <a class="aes" href="{{ carDealer.id}}" property="legalName">{{ carDealer.name}} </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <p>No hi han Concessionaris.</p>
+                {% endif %}
+                <button class="button" onclick="window.location.href='create'">Afegir Concessionari</button>
+        </span>
 {% include "footer.html" %}

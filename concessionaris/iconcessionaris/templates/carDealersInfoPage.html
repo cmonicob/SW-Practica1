@@ -1,19 +1,14 @@
 {% include "base.html" %}
-<html>
-  <head>
-    <title>Informacio concessionari</title>
-  </head>
-  <body id="body">
-    <p id="p_tittle">Informacio concessionari</p>
-    {% if concessionari %}
-  	<p>Nom del concessionari: {{ concessionari.name}} </p>
-	<p>Telefon: {{ concessionari.tel }}</p>
-	<p>Adreça: {{ concessionari.address }}</p>
-    {% else %}
-      <p>No existeix aquest concessionari.</p>
-    {% endif %}
-    <button class="button" onclick="window.location.href='delete'">Eliminar concessionari</button>
-    <button class="button" onclick="window.location.href='edit'">Editar concessionari</button>
-  </body>
-</html>
+    	<span typeof="AutoDealer">
+		<p id="p_tittle">Informacio concessionari</p>
+		{% if concessionari %}
+		<p property="legalName">Nom del concessionari: {{ concessionari.name}} </p>
+		<p property="telephone">Telefon: {{ concessionari.tel }}</p>
+		<p property="address">Adreça: {{ concessionari.address }}</p>
+		{% else %}
+		<p property="alternateName">No existeix aquest concessionari.</p>
+		{% endif %}
+		<button class="button" onclick="window.location.href='delete'">Eliminar concessionari</button>
+		<button class="button" onclick="window.location.href='edit'">Editar concessionari</button>
+    	</span>
 {% include "footer.html" %}

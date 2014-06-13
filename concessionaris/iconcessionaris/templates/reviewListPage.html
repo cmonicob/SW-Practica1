@@ -1,21 +1,16 @@
 {% include "base.html" %}
-<html>
-  <head>
-    <title>Concessionaris</title>
-  </head>
-  <body id="body">
-<p id="p_tittle">Reviews</p>
-    {% if object_list %}
-      <ul>
-        {% for review in object_list %}
-        <a class="aes" href="{{ review.pk }}">{{ review.pk }}</a><br>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No hi han Reviews.</p>
-    {% endif %}
+    <span typeof="ItemList" >
+      <p id="p_tittle" property="name">Reviews</p>
+      {% if object_list %}
+        <ul>
+          {% for review in object_list %}
+          <a class="aes" href="{{ review.pk }}" property="itemListElement">{{ review.pk }}</a><br>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No hi han Reviews.</p>
+      {% endif %}
+    </span>
     <button class="button" onclick="window.location.href='create'">Afegir Review</button>
-  </body>
-</html>
 {% include "footer.html" %}
 

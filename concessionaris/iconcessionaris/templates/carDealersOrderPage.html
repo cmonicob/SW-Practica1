@@ -1,21 +1,16 @@
 {% include "base.html" %}
-<html>
-	<head>
-		<title>{{ carDealer }}</title>
-	</head>
-	<body id="body">
-		<p id="p_tittle">Cotxes comprats en {{ carDealer }}</p>
+	<span typeof="CreativeWork">
+		<p id="p_tittle" property="commentText">Cotxes comprats en {{ carDealer }}</p>
 		{% if object_list %}
-		<ul>
+		<ul typeof="ItemList">
 		{% for order in object_list %}
-		<li>
+		<li property="itemListElement">
 		{{ order.id }} - {{ order.model.name}} - {{ order.model.marca }} - {{ order.user.username }} - {{ order.model.preu }}€
 		</li>
 		{% endfor %}
 		</ul>
 		{% else %}
-		<p>No ha comprat cotxes.</p>
+		<p property="commentText">No ha comprat cotxes.</p>
 		{% endif %}
-	</body>
-</html>
+	</span>
 {% include "footer.html" %}
