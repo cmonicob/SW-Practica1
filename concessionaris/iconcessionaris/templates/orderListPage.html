@@ -2,7 +2,7 @@
 <span typeof="OrderAction">
   <p id="p_tittle" property="name">Ordres</p>
     {% if object_list %}
-      <ul>
+      <ul typeof="ItemList">
         {% for order in object_list %}
         <a class="aes" href="{{ order.pk }}" property="itemListElement">{{ order.pk }}</a><br>
         {% endfor %}
